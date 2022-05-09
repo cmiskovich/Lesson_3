@@ -1,20 +1,95 @@
 # Lesson_3
-
-
-In this lesson I created a Jupyter notebook that reviews arbitrage opportunities in cryptocurrencies and specifically price differences on different marketpalces, in this example the Bitstamp and Coinbase marketplace.
-
-First item was to create a GitHub repository and load the necessary files for the lesson along with creating a .gitignore file and then push the updates to GitHub.
-
-Next I collected the data from the resources folder for Bitstamp and Coinbase using the Jupyter notebook.
-
-Then I prepared the data for analysis by dropping the NaN or missing values in the dataframes.  Used the str_replace function to remove the "$" from the close column.  Converted the date type for the close column to float.  Finally reviewed the data in the Bitstamp and Coinbase data frame for duplicated values and dropped them.
-
-
-After that I analyzed the data, first by using loc to select the timestamp and close columns from both files.  After that I used the describe function to get the summary statistics for each data frame.  Then we plotted both data frames separately and then I overlaid the two data frames in a plot. 
-
-I then chose three dates one from each month to review for potential arbitrage earnings.  January 29th, February 2nd, and March 2nd, 2018. I plotted both marketplaces on each date along with creating the summary statistics and a box plot.
-
-I calculated the arbitrage profits by measuring the spread and subtracting the lower priced marketplace from the higher one.  I then used a conditional statement  to generate summary statistics for each day's arbitrage spread.  I then calculated the spread returns for each date, generated a spread return that was greater than one percent this is to cover fees for the trades.  I then generated the summary statistics and plotted the results for each day.  I then calculated the potential arbitrage profits for each day and then the cumulative sum of the profits for each day.
-
-Finally I created my analysis report using assumptions and trends that I made during the analysis, along with summary tables and visulaizations.
   
+# Primary application file
+
+Using Jupyter lab create a file to present to the VP of my department about arbitrage opportunites in cryptocurrencies.  In order to that I had to collect CSV data in a Jupyter notebook file. Then prepare the datasets for analysis by cleaning missing and erroneous data. Finally analyze the data at a high level through summary statistics and visualizations, and use this information to select areas for deeper analysis. 
+
+---
+
+## Technologies
+
+The following Technologies were used to develop this program:
+
+Python 
+    Version 3.9.7
+
+Terminal
+    Version 2.12.5 (444)
+
+Visual Studio Code
+    Version: 1.66.2 (Universal)
+    Commit: dfd34e8260c270da74b5c2d86d61aee4b6d56977
+    Date: 2022-04-11T07:49:20.994Z
+    Electron: 17.2.0
+    Chromium: 98.0.4758.109
+    Node.js: 16.13.0
+    V8: 9.8.177.11-electron.0
+    OS: Darwin x64 21.4.0
+    
+Jupyter Lab 
+    Version 3.2.9
+
+---
+
+## General information about analysis.
+
+Arbitrage opportunities existed by as the months progressed the two marketplaces Bitstamp and Coinbase started having more similiar close prices.  This reduced the opportunity in February and it disappeared in March.  January had incredible opportunity for returns especially January 29th,2018 with a potential cumulative profits of $148,647.30.   With arbitrage opportuinities when they occur they are quickly discovered and then disappear.
+
+
+---
+
+## Information about datasets
+
+Bitstamp and Coinbase datasets were created using the csv files provided in the Resource folder.  The length of time similiar for both was from January 1st, 2018 to March 31st, 2018.  Using those datasets I was able to plot both of them in for their entirety and also overlap them.  After that we were asked to do an early month and a late month so I ovelapped them for January and March 2018.
+
+After that I specified days and created the following datasets:
+January 29th, 2018
+arbitrage_spread_early Subtracted the larger close price from a marketplace from the other.
+spread_return_early took the arbitrage_spred_early greater than zero and divided by the lower closing marketplace.
+profitable_trades_early took the spread_return dataset and looked for amounts greater than .01 to cover any transaction fees.
+profit_per_trade_early took the amount of profitable_trades and multiplied the amount by the marketplace close.
+profit_sum_early takes profit_per_trade and sums the amount.
+cumulative_profit_early takes profit_per_trade and uses the cumsum function to determine cumulative sum of profits.
+
+February 2nd, 2018
+arbitrage_spread_middle Subtracted the larger close price from a marketplace from the other.
+spread_return_middle took the arbitrage_spred_middle greater than zero and divided by the lower closing marketplace.
+profitable_trades_middle took the spread_return dataset and looked for amounts greater than .01 to cover any transaction fees.
+profit_per_trade_middle took the amount of profitable_trades and multiplied the amount by the marketplace close.
+profit_sum_middle takes profit_per_trade and sums the amount.
+cumulative_profit_middle takes profit_per_trade and uses the cumsum function to determine cumulative sum of profits.
+
+March 2nd, 2018
+arbitrage_spread_late Subtracted the larger close price from a marketplace from the other.
+spread_return_late took the arbitrage_spred_late greater than zero and divided by the lower closing marketplace.
+profitable_trades_late took the spread_return dataset and looked for amounts greater than .01 to cover any transaction fees.
+profit_per_trade_late took the amount of profitable_trades and multiplied the amount by the marketplace close.
+profit_sum_late takes profit_per_trade and sums the amount.
+cumulative_profit_late takes profit_per_trade and uses the cumsum function to determine cumulative sum of profits.
+
+---
+
+## Libraties used in analysis
+
+Pandas
+Path
+%matplotlib
+
+---
+
+## Contributors
+
+
+**Chris Miskovich**
+
+Contact Information:
+
+Email: cmiskovich@verizon.net
+
+[LinkedIn](https://www.linkedin.com/in/christopher-miskovich-9a61b0234/) 
+
+---
+
+## License
+
+[MIT](images/License.txt)
